@@ -1,0 +1,88 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 sticky-top border-none bg-dark  shadow-sm text-white" style="border:none;">
+  <h2 class="my-0 mr-md-auto font-weight-normal"><b>Stay Safe</b></h2>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-white" href="#">Understanding Covid-19</a>
+    <a class="p-2 text-white" href="#">Covid-19</a>
+    <a class="p-2 text-white" href="#">About Us</a>
+  </nav>
+</div>
+
+
+  <div class="container-fluid bg-dark theme bg-sm-light mb-5">
+      <div class="jumbotron-fluid jumbotron bg-dark text-white text-center bg-sm-light" style="width: 100%;">
+        <div class="container">
+          <h1 class="display-4 coivid-text" style="font-size: 3.4em;" ><b>Covid-19 Dashboard</b></h1>
+          <p class="lead" style="font-size: 18px;">Get real time data of the pandemic</p>
+        </div>
+        <div class="text-center mt-4">
+            <img src="https://a.omappapi.com/users/f51ab56e82fa/images/55b8ded81cec1583268204-coronavirus.png" alt="" style="width: 140px; height:140px;" />
+        </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid mt-5">
+    <h2 class="sticky-top bg-dark bg-sm-light py-4 pl-3 h1 text-white">{{currentCountry}} Reports</h2>
+  
+  <mat-form-field class="ml-3">
+    <mat-label>Search</mat-label>
+    <input [(ngModel)]="currentCountry"matInput (keyup)="applyFilter($event.target.value)" placeholder="Ex. ium">
+  </mat-form-field>
+  <table  mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Country </th>
+      <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cases">
+      <th class="text-warning display-1" mat-header-cell *matHeaderCellDef mat-sort-header> Cases</th>
+      <td class="text-warning" mat-cell *matCellDef="let element"> {{element.cases | number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="todayCases">
+      <th class="text-warning" mat-header-cell *matHeaderCellDef mat-sort-header> Today's Cases </th>
+      <td class="text-warning pl-3" mat-cell *matCellDef="let element"> {{element.todayCases | number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="deaths">
+      <th class="text-danger" mat-header-cell *matHeaderCellDef mat-sort-header> Deaths </th>
+      <td class="text-danger pl-1" mat-cell *matCellDef="let element"> {{element.deaths | number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="todayDeaths">
+      <th class="text-danger" mat-header-cell *matHeaderCellDef mat-sort-header> Today's Deaths </th>
+      <td class="text-danger pl-3" mat-cell *matCellDef="let element"> {{element.todayDeaths | number}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="recovered">
+      <th class="text-success" mat-header-cell *matHeaderCellDef mat-sort-header> Recovered </th>
+      <td class="text-success pl-2" mat-cell *matCellDef="let element"> {{element.recovered | number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="active">
+      <th class="text-primary" mat-header-cell *matHeaderCellDef mat-sort-header> Active </th>
+      <td class="text-primary pl-2" mat-cell *matCellDef="let element"> {{element.active | number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="critical">
+      <th class="text-warning" mat-header-cell *matHeaderCellDef mat-sort-header> Critical </th>
+      <td class="text-warning pl-3" mat-cell *matCellDef="let element"> {{element.critical | number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tests">
+      <th style= "color:black" mat-header-cell *matHeaderCellDef mat-sort-header> Tests </th>
+      <td mat-cell *matCellDef="let element"> {{element.tests | number}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[10, 20,50,195]" showFirstLastButtons></mat-paginator>
+  <div>
+
+
+
+

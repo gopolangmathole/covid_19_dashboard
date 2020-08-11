@@ -1,0 +1,27 @@
+
+mat-grid-tile {
+    background: lightblue;
+  }
+
+
+table{
+    width:100%;
+    align-content: center;
+    word-spacing: 5px;
+}
+
+th{
+    position: sticky;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+  }
+.mat-row:nth-child(even){
+    background-color:
+    #E9ECEF;
+    }
+
+.mat-row:nth-child(odd){
+    background-color:ff111;
+    }
