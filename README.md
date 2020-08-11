@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
 
-#Demo
+## Demo
 Try it here https://gopolangmathole.github.io/covid_19_dashboard/
 
 ## Development server
